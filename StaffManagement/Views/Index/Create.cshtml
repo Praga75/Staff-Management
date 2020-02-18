@@ -1,0 +1,39 @@
+﻿@model Staff.Data.Staffs
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Index", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Staff ID :</td>
+            <td> @Html.TextBoxFor(Model => Model.StaffId)</td>
+        </tr>
+        <tr>
+            <td>Staff Name : </td>
+            <td>@Html.TextBoxFor(Model => Model.Name)</td>
+        </tr>
+        <tr>
+            <td>Department : </td>
+            <td>@Html.TextBoxFor(Model => Model.Department)</td>
+        </tr>
+        <tr>
+            <td>Designation: </td>
+            <td>@Html.TextBoxFor(Model => Model.Designation)</td>
+        </tr>
+        <tr>
+            <td>Salary: </td>
+            <td>@Html.TextBoxFor(Model => Model.Salary)</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+            <td><a href="/Index">Back</a></td>
+        </tr>
+    </table>
+}

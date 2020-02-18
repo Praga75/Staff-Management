@@ -1,0 +1,35 @@
+﻿@model Staff.Data.Staffs
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("Update", "Index", FormMethod.Post))
+{
+    @Html.HiddenFor(Model => Model.StaffId);
+    <table>
+        <tr>
+            <td> Name : </td>
+            <td>@Html.TextBoxFor(Model => Model.Name)</td>
+        </tr>
+        <tr>
+            <td>Department : </td>
+            <td>@Html.TextBoxFor(Model => Model.Department)</td>
+        </tr>
+        <tr>
+            <td>Designation: </td>
+            <td>@Html.TextBoxFor(Model => Model.Designation)</td>
+        </tr>
+        <tr>
+            <td>Salary: </td>
+            <td>@Html.TextBoxFor(Model => Model.Salary)</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Update" />
+            </td>
+            <td><a href="/Index">Back</a></td>
+        </tr>
+    </table>
+}

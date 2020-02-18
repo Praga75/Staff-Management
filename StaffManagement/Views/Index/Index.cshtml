@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Staff.Data.Staffs>
+
+@{
+    ViewBag.Title = "Display";
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        background-color: lemonchiffon;
+        padding:1px;
+    }
+</style>
+
+<h2>Welcome</h2>
+@if (TempData["Message"] != null)
+{
+    @Html.Label((string)TempData["Message"]);
+}
+<br />
+@Html.ActionLink("Add new Staff", "Create")
+<br />
+
+<table style="width:100%">
+    <tr>
+        <th>Staff Id</th>
+        <th>Staff Name</th>
+        <th>Department</th>
+        <th>Designation</th>
+        <th>Salary</th>
+        <th>Operation</th>
+    </tr>
+    @foreach (Staff.Data.Staffs staffs in Model)
+    {
+        <tr>
+            <td>@staffs.StaffId</td>
+            <td>@staffs.Name</td>
+            <td>@staffs.Department</td>
+            <td>@staffs.Designation</td>
+            <td>@staffs.Salary</td>
+            <td>
+                @Html.ActionLink("Edit / ", "Edit", new { id = staffs.StaffId })
+                @Html.ActionLink("Delete", "Delete", new { id = staffs.StaffId })
+            </td>
+        </tr>
+    }
+
+</table>
