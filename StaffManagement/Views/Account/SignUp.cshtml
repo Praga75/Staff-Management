@@ -1,0 +1,79 @@
+﻿@model Account.Entity.AccountDetail
+
+@{
+    ViewBag.Title = "SignUp";
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        background-color: lemonchiffon;
+        padding: 1px;
+        column-width:6cm;
+      }
+    
+</style>
+
+<h2>SignUp</h2>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>User Name :</td>
+            <td > @Html.TextBoxFor(Model => Model.UserName)</td>
+        </tr>
+        <tr>
+            <td>Password : </td>
+            <td>@Html.TextBoxFor(Model => Model.Name)</td>
+        </tr>
+        <tr>
+            <td>Name : </td>
+            <td>@Html.TextBoxFor(Model => Model.Name)</td>
+        </tr>
+        <tr>
+            <td>MailId: </td>
+            <td>@Html.TextBoxFor(Model => Model.MailId)</td>
+        </tr>
+        <tr>
+            <td>Date Of Birth: </td>
+            <td>@Html.TextBoxFor(Model => Model.DateOfBirth)</td>
+        </tr>
+        <tr>
+            <td>Mobile Number: </td>
+            <td>@Html.TextBoxFor(Model => Model.MobileNumber)</td>
+        </tr>
+        <tr>
+            <td>Gender: </td>
+            <td>
+                @Html.RadioButtonFor(model => model.Gender, "Male")Male
+                @Html.RadioButtonFor(model => model.Gender, "Female")Female
+                @Html.RadioButtonFor(model => model.Gender, "Others")Others
+            </td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <td>@Html.TextBoxFor(Model => Model.Address)</td>
+        </tr>
+        <tr>
+            <td>Nationality: </td>
+            <td>
+                @Html.DropDownList("Nationality", new List<SelectListItem>
+                    {
+               new SelectListItem{Text = "Indian", Value = "Indian" },
+               new SelectListItem{Text = "SriLankan", Value = "SriLankan" },
+               new SelectListItem{Text = "Pakistani", Value = "Pakistani" },
+               new SelectListItem{Text = "Nepali", Value = "Nepali" },
+
+                    }, "Select Nationality")
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+            <td><a href="/Index">Back</a></td>
+        </tr>
+    </table>
+}
+

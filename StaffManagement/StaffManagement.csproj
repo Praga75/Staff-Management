@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -136,6 +137,8 @@
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\SignUp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -148,6 +151,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Account.Entity\Account.Entity.csproj">
+      <Project>{5c9f8d5f-c364-40cd-ad3c-acaca63c76bd}</Project>
+      <Name>Account.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Staff.Data\Staff.Data.csproj">
       <Project>{ab5632b6-0e87-42f8-a824-400d3828b33b}</Project>
       <Name>Staff.Data</Name>
