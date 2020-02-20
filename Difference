@@ -1,0 +1,14 @@
+The Main Difference between Update Model and Try Update Model is that
+
+UpdateModel() -- will throws an exception
+
+TryUpdate Model() -- will not throw exception
+
+UpdateModel() -- inspects all the HttpRequest inputs such as posted form data,
+query string, cookies, and server variables an populates the object.
+
+TryUpdateModel() -- will not look into httpRequest 
+
+Both are used to  update the model with the form values and perform the validations.
+
+It is one of the case in model  binding.
