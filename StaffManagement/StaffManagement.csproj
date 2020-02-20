@@ -139,6 +139,7 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\SignUp.cshtml" />
+    <Content Include="Views\Shared\_CustomLayoutPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

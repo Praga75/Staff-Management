@@ -18,16 +18,58 @@ namespace StaffManagement.Controllers
             IEnumerable<Staffs> staffs = staffRepository.GetStaffsInfo();
             return View(staffs);
         }
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //Adding Staff detail without Update Model
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult Create(Staffs staff)
+        //{
+        //    staffRepository.AddStaff(staff);
+        //    TempData["Message"] = "Staff Detail Added Successfully!";
+        //    return RedirectToAction("Index");
+        //}
+
+        //Adding Staff Detail with Update Model
+        //[HttpGet]
+        //[ActionName("Create")]
+        //public ActionResult Create_Get()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //[ActionName("Create")]
+        //public ActionResult Create_Post()
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Repository repository = new Repository();
+        //        Staffs staffs = new Staffs();
+        //        UpdateModel<Staffs>(staffs);
+        //        repository.AddStaff(staffs);
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View();
+        //}
+
+        //Adding Staff Detail with TryUpdate Model
         [HttpPost]
-        public ActionResult Create(Staffs staff)
+        [ActionName("Create")]
+        public ActionResult Create_Post()
         {
-            staffRepository.AddStaff(staff);
-            TempData["Message"] = "Staff Detail Added Successfully!";
-            return RedirectToAction("Index");
+            Repository repository = new Repository();
+            Staffs staffs = new Staffs();
+            TryUpdateModel(staffs);
+            if (ModelState.IsValid)
+            {
+                repository.AddStaff(staffs);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult Delete(int id)
